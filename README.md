@@ -1,4 +1,8 @@
+
+
 # Jenkins SSH slave Docker image
+
+## Forked from jenkinsci/docker-ssh-slave to add Git and Maven
 
 [`jenkinsci/ssh-slave`](https://hub.docker.com/r/jenkinsci/ssh-slave/)
 
