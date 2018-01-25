@@ -1,4 +1,4 @@
-# The MIT License
+  # The MIT License
 #
 #  Copyright (c) 2015, CloudBees, Inc.
 #
@@ -21,7 +21,7 @@
 #  THE SOFTWARE.
 
 FROM openjdk:8-jdk
-LABEL MAINTAINER="Nicolas De Loof <nicolas.deloof@gmail.com>"
+LABEL MAINTAINER="Francisco Calderon"
 
 ARG user=jenkins
 ARG group=jenkins
@@ -38,6 +38,12 @@ RUN groupadd -g ${gid} ${group} \
 RUN apt-get update \
     && apt-get install --no-install-recommends -y openssh-server \
     && apt-get clean
+
+RUN apt-get install -y git
+
+RUN apt-get install -y maven
+
+
 RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 RUN sed -i 's/#RSAAuthentication.*/RSAAuthentication yes/' /etc/ssh/sshd_config
 RUN sed -i 's/#PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
