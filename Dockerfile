@@ -41,6 +41,8 @@ RUN apt-get update \
 
 RUN apt-get install -y git
 
+RUN apt-get install -y ca-certificates-java && update-ca-certificates -f
+
 RUN apt-get install -y maven
 
 
